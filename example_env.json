@@ -9,5 +9,7 @@
         "mongo": {
             "db_name": "example"
         }
-    }
+    },
+    "token": "adok132123aoksssd",
+    "tokenValid": 1440
 }
