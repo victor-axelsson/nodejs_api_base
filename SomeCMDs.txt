@@ -1,3 +1,0 @@
-db.xxx.find({"data.objects" : {$size : 0}})
-db.xxx.delete({"data.objects" : {$size : 0}})
-db.xxx.count()
