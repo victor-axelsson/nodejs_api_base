@@ -3,6 +3,7 @@ var userHandler = require('./handlers/userHandler');
 
 var middleware = require('./middleware/middleware');
 var documentation = require('./handlers/documentation');
+var env = require("./helpers/environment");
 
 endpoints.ping = {
     url: '/ping',
@@ -13,7 +14,9 @@ endpoints.ping = {
     expectedOutput: "A text string saying pong",
     handlerName: "none",
     handler: function(req, res) {
-        res.send(200, "pong");
+        env.getEnvironmentAsync(function(err, content) {
+            res.status(200).send(content);
+        });
     }
 }
 

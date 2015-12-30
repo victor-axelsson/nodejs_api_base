@@ -1,51 +1,51 @@
-var documentation = {}; 
+var documentation = {};
 
-documentation.getDocs = function(req, res, endpoints){
-	if(req.params.format == "json"){
-		docsWithJson(req, res, endpoints); 
-	}else if(req.params.format == "html"){
-		docsWithHtml(req, res, endpoints); 
-	}else{
-		res.send("Could not find format. Supported formats are JSON and HTML", 400); 
-	}
-}; 
+documentation.getDocs = function(req, res, endpoints) {
+    if (req.params.format == "json") {
+        docsWithJson(req, res, endpoints);
+    } else if (req.params.format == "html") {
+        docsWithHtml(req, res, endpoints);
+    } else {
+        res.send("Could not find format. Supported formats are JSON and HTML", 400);
+    }
+};
 
-function docsWithHtml(req, res, endpoints){
+function docsWithHtml(req, res, endpoints) {
 
-	var content = []; 
+    var content = [];
 
-	//Pre process the data
-	for (var key in endpoints) {
-	  content.push({
-		  	title : key,
-		  	url : endpoints[key].url,
-		  	description: endpoints[key].description,
-		  	method: endpoints[key].method,
-		  	handler: endpoints[key].handler.toString(),
-		  	handlerName: endpoints[key].handlerName,
-		  	expectedInput: endpoints[key].expectedInput,
-		  	expectedOutput: endpoints[key].expectedOutput
-	  	});  
-	}
+    //Pre process the data
+    for (var key in endpoints) {
+        content.push({
+            title: key,
+            url: endpoints[key].url,
+            description: endpoints[key].description,
+            method: endpoints[key].method,
+            handler: endpoints[key].handler.toString(),
+            handlerName: endpoints[key].handlerName,
+            expectedInput: endpoints[key].expectedInput,
+            expectedOutput: endpoints[key].expectedOutput
+        });
+    }
 
-	 res.render('docs', {
+    res.render('docs', {
         head: {
-              title: 'page title'
+            title: 'page title'
         },
-        endpoints : content
+        endpoints: content
     });
 }
 
-function docsWithJson(req, res, endpoints){
+function docsWithJson(req, res, endpoints) {
 
-	console.log(endpoints);
+    console.log(endpoints);
 
-	var output = {}; 
-	output.endpoints = endpoints; 
+    var output = {};
+    output.endpoints = endpoints;
 
-	res.send(output, 200);
+    res.status(200).send(output);
 }
 
 
 
-module.exports  = documentation; 
+module.exports = documentation;

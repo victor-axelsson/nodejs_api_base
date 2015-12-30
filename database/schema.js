@@ -1,8 +1,10 @@
 var dbSchema = {};
 
+var env = require('../v1/helpers/environment').getEnvironment();
+
 var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
-mongoose.connect('mongodb://localhost/my_database_name');
+mongoose.connect('mongodb://localhost/' + env.database.mongo.db_name);
 
 var usersSchema = {
     username: {

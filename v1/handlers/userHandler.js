@@ -32,11 +32,11 @@ userHandler.register = function(req, res) {
                         	userModel.username,
                         	"Email verification, Open canvas"); 
                         */
-                        res.send(200, userModel.username + "/" + userModel.token);
+                        res.status(200).send(userModel.username + "/" + userModel.token);
                     }
                 });
             } else {
-                res.send(500, "user already exists");
+                res.status(200).send("user already exists");
             }
         }
     });
@@ -61,13 +61,13 @@ userHandler.registerWithoutToken = function(req, res) {
                 u.save(function(err) {
                     if (err) {
                         console.log(err);
-                        res.send(500, "Error: " + err);
+                        res.status(500).send("Error: " + err);
                     } else {
-                        res.send(200, userModel.username + "/" + userModel.token);
+                        res.status(200).send(userModel.username + "/" + userModel.token);
                     }
                 });
             } else {
-                res.send(500, "user already exists");
+                res.status(500).send("user already exists");
             }
         }
     });

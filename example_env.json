@@ -1,0 +1,13 @@
+{
+    "database": {
+        "mysql": {
+            "username": "myUSer",
+            "password": "myPass",
+            "url": "localhost",
+            "db_name": "myDB"
+        },
+        "mongo": {
+            "db_name": "example"
+        }
+    }
+}
