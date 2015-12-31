@@ -5,6 +5,11 @@ var mongoose = require('mongoose');
 var ObjectId = mongoose.Types.ObjectId;
 var userHandler = require('../handlers/userHandler');
 
+
+/**
+ * @author Victor Axelsson
+ * Checks if a user exists in the db with the specified username
+ */
 middleware.userExists = function(req, res, next) {
     dbSchema.User.findOne({
         username: req.body.user.username
@@ -25,7 +30,10 @@ middleware.userExists = function(req, res, next) {
     });
 }
 
-
+/**
+ * @author Victor Axelsson
+ * Checks if the specified params id is a valid mongodb id
+ */
 middleware.haveValidId = function(req, res, next) {
     if (ObjectId.isValid(req.params.id)) {
         var str = req.params.id + '';
@@ -48,8 +56,8 @@ middleware.haveValidId = function(req, res, next) {
 }
 
 /** 
- * Api key was provided
  * @author Victor Axelsson
+ * Api key was provided
  */
 middleware.validToken = function(req, res, next) {
 

@@ -8,7 +8,7 @@ var env = require("./helpers/environment");
 endpoints.ping = {
     url: '/ping',
     method: 'get',
-    middleware: [middleware.validToken],
+    middleware: [],
     description: "This is just a sample endpint for a ping to the endpoint.",
     expectedInput: "none",
     expectedOutput: "A text string saying pong",
@@ -39,7 +39,7 @@ endpoints.register = {
     middleware: [],
     description: "Registers a new user in the api",
     expectedInput: "Object containing username and password",
-    expectedOutput: "Object containing username, password and api_key",
+    expectedOutput: "Object containing username and token",
     handlerName: "userHandler",
     handler: userHandler.register
 }
