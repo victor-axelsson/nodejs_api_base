@@ -5,7 +5,6 @@ var mongoose = require('mongoose');
 var ObjectId = mongoose.Types.ObjectId;
 var userHandler = require('../handlers/userHandler');
 
-
 /**
  * @author Victor Axelsson
  * Checks if a user exists in the db with the specified username

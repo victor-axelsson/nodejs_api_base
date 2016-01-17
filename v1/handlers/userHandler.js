@@ -99,7 +99,6 @@ userHandler.login = function(req, res) {
                 res.status(200).send({
                     _id: result._id,
                     username: result.username,
-                    key: result.api_key,
                     token: userHandler.createToken(result)
                 });
 
