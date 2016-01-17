@@ -4,6 +4,7 @@
   "version": "0.0.1",
   "private": true,
   "dependencies": {
+    "apicache": "0.0.12",
     "body-parser": "*",
     "cors": "*",
     "crypto": "0.0.3",

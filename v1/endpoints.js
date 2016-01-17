@@ -5,10 +5,17 @@ var middleware = require('./middleware/middleware');
 var documentation = require('./handlers/documentation');
 var env = require("./helpers/environment");
 
+//For cacheing request
+var apicache = require('apicache').options({
+    debug: true
+}).middleware;
+var cacheTime = "5 minutes";
+
+
 endpoints.ping = {
     url: '/ping',
     method: 'get',
-    middleware: [],
+    middleware: [apicache(cacheTime)], //example of API cacheing, use on endpoint you want cached
     description: "This is just a sample endpint for a ping to the endpoint.",
     expectedInput: "none",
     expectedOutput: "A text string saying pong",
