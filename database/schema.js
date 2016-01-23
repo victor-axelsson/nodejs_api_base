@@ -19,6 +19,10 @@ var usersSchema = {
         type: String,
         required: "usersSchema.salt is required"
     },
+    profile_pic: {
+        type: String,
+        default: "http://s3.favim.com/orig/45/baby-cute-seal-seal-pup-smile-Favim.com-400983.jpg"
+    },
     roles: {
         type: Array,
         default: ['review']
