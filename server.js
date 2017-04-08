@@ -1,6 +1,5 @@
 var express = require('express');
 var bodyParser = require('body-parser');
-var	mustacheExpress = require('mustache-express');
 
 var cors = require('cors'); 
 var v1 = require('./v1/'); 
