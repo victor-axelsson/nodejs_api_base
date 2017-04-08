@@ -19,7 +19,7 @@ for (var key in endpoints) {
 	var endpoint = endpoints[key];
 
     //Add as first middleware on endpoint
-    endpoint.middleware.unshift(limiter);
+    //endpoint.middleware.unshift(limiter);
 
 
 	if(endpoint.middleware)
